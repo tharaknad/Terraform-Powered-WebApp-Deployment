@@ -13,6 +13,7 @@ resource "aws_subnet" "sub1" {
   }
 }
 
+
 resource "aws_subnet" "sub2" {
   vpc_id                  = aws_vpc.myvpc.id
   cidr_block              = "10.0.2.0/24"
@@ -92,14 +93,14 @@ resource "aws_s3_bucket" "mys3bucket" {
   bucket = "aws-demoproj-deployment-1"
 }
 resource "aws_instance" "webserver1" {
-  ami                    = "ami-084568db4383264d4"
+  ami                    = "<provide ami deatils >"
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.webSg.id]
   subnet_id              = aws_subnet.sub1.id
   user_data              = file("userdata.sh")
 }
 resource "aws_instance" "webserver2" {
-  ami                    = "ami-084568db4383264d4"
+  ami                    = "<provide ami details"
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.webSg.id]
   subnet_id              = aws_subnet.sub2.id
